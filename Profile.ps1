@@ -4,21 +4,23 @@
 
 $baseDir = '{baseDir}'
 
-Import-Module "$baseDir\vcpkg\scripts\posh-vcpkg"
+if (Test-Path -Path "$baseDir\vcpkg\scripts\posh-vcpkg") {
+    Import-Module "$baseDir\vcpkg\scripts\posh-vcpkg"
+}
 
 # Set vcpkg environment variables
 $env:VCPKG_ROOT = "$baseDir\vcpkg"
 $env:VCPKG_DEFAULT_TRIPLET = "x64-windows"
 
 # Add Clang and LLD to PATH
-$env:Path += ";$baseDir\LLVM\bin;($($env:VCPKG_ROOT))"
+$env:Path += ";$baseDir\LLVM\bin;$env:VCPKG_ROOT;"
 
 # Set include and library paths for Clang
-$env:CPLUS_INCLUDE_PATH = "$($env:VCPKG_ROOT)\installed\x64-windows\include"
-$env:LIBRARY_PATH = "$($env:VCPKG_ROOT)\installed\x64-windows\lib"
+$env:CPLUS_INCLUDE_PATH = "$env:VCPKG_ROOT\installed\x64-windows\include"
+$env:LIBRARY_PATH = "$env:VCPKG_ROOT\installed\x64-windows\lib"
 
 # Set the LIB environment variable to include vcpkg libraries
-$env:LIB = "$($env:VCPKG_ROOT)\installed\x64-windows\lib;$env:LIB"
+$env:LIB = "$env:VCPKG_ROOT\installed\x64-windows\lib;$env:LIB"
 
 ################################################
 #####     Visual Studio Configurations
@@ -42,7 +44,7 @@ $env:LIB += ";C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0\um\x64;C:\
 function prompt {
     @"
 $PWD
->
+# 
 "@
 }
 
@@ -51,9 +53,3 @@ $PWD
 ################################################
 
 Set-Alias ll Get-ChildItem
-
-################################################
-#####     Custom POSH Imports
-################################################
-
-Import-Module posh-git

@@ -9,7 +9,7 @@ function Install-WinGetPkg ([string]$pkg) {
 }
 
 function Remove-WinGetPkg ([string]$pkg) {
-    winget.exe uninstall --exact --id $pkg
+    winget.exe uninstall --exact --id $pkg --force
 }
 
 function Install-WinGetPkgs ([System.Collections.ArrayList]$pkgs) {

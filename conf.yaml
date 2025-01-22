@@ -55,9 +55,9 @@ winget:
     - Valve.Steam
 
   blacklist:
-    # - Microsoft.Edge
-    # - Microsoft.Teams.Free
-    # - Microsoft.Teams
+    - Microsoft.Edge
+    - Microsoft.Teams.Free
+    - Microsoft.Teams
     
     # ignore:
     # - Microsoft.WSL
