@@ -1,0 +1,82 @@
+base-dir: C:\Dev
+
+winget:
+  pkgs:
+    # default
+    - MartiCliment.UniGetUI
+    - Microsoft.AppInstaller
+    - Microsoft.WindowsTerminal
+
+    # content-creation:
+    - Audacity.Audacity
+    - HandBrake.HandBrake
+    - OBSProject.OBSStudio
+    - ByteDance.CapCut
+
+    # development:
+    - Git.Git
+    - mesonbuild.meson
+    - Oracle.JDK.23
+    - OpenJS.NodeJS
+    - Microsoft.PowerShell
+    - Kitware.CMake
+    - Microsoft.VisualStudio.2022.BuildTools
+    - GnuWin32.Bison
+    - GnuWin32.DiffUtils
+    - LLVM.LLVM
+    - Python.Python.3.13
+    - Python.Launcher
+    - Microsoft.VCRedist.2015+.x64
+    - Microsoft.VCRedist.2015+.x86
+    - Ccache.Ccache
+    - Ninja-build.Ninja
+    - Postman.Postman
+    - JetBrains.Toolbox
+    - cURL.cURL
+    - pnpm.pnpm
+    - zig.zig
+    - zigtools.zls
+    - Microsoft.VisualStudioCode
+    - Microsoft.VCLibs.Desktop.14
+
+    # aux:
+    - Google.GoogleDrive
+    - Google.QuickShare
+    - Google.Chrome.EXE
+    - JavadMotallebi.NeatDownloadManager
+    - KeePassXCTeam.KeePassXC
+    - AnyAssociation.Anytype
+    - Discord.Discord
+    - Zoom.Zoom.EXE
+    - Telegram.TelegramDesktop
+
+    # gaming:
+    - Nvidia.PhysX
+    - Valve.Steam
+
+  blacklist:
+    # - Microsoft.Edge
+    # - Microsoft.Teams.Free
+    # - Microsoft.Teams
+    
+    # ignore:
+    # - Microsoft.WSL
+
+vcpkg:
+  url: https://github.com/microsoft/vcpkg.git
+  run: bootstrap-vcpkg.bat
+  pkgs:
+    - fmt
+    - boost
+    - curl
+    - bzip2
+    - liblzma
+    - lz4
+    - lzo
+    - openssl
+    - snappy
+    - libxml2
+    - zlib
+    - zstd
+    - expat
+    - libiconv
